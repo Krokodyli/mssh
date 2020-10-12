@@ -73,7 +73,7 @@ def main(argv):
             print()
             print('mssh s - shows saved SSH servers')
             print('mssh a <NAME> <USER> <ADDRESS> <PORT> <IDENTITY FILE OPTIONAL> - saves new SSH server in script config')
-            print('mssh d <NAME> - removes saved SSH server from script config')
+            print('mssh r <NAME> - removes saved SSH server from script config')
         elif argv[0] == 's':
             if len(config) > 0:
                 print('Saved SSH servers:')
@@ -101,7 +101,7 @@ def main(argv):
             else:
                 exit(os.system('ssh -i '+key+' -p '+port+' '+user+'@'+address))
         # Delete ssh server from config
-        elif argv[0] == 'd':
+        elif argv[0] == 'r':
             if argv[1] in config:
                 config.pop(argv[1])
                 print('Removed \''+argv[1]+'\'.')
