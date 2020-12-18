@@ -41,7 +41,7 @@ def loadConfig(path):
         print('Exception:', e)
         exit(1)
     finally:
-        if not file.closed:
+        if 'file' in locals() and not file.closed:
             file.close()
     return config
 
@@ -146,7 +146,7 @@ def main(argv):
         wrongArgsFlag = True
 
     if wrongArgsFlag:
-        print('Invalid arguments. Try -h for summary of options.')
+        print('Invalid arguments. Type \'mssh h\' for summary of options.')
 
 
 if __name__ == '__main__':
